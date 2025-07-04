@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Redirecionando...</title>
 
   <!-- Pixel do Facebook -->
@@ -16,11 +16,14 @@
       s.parentNode.insertBefore(t,s)}(window,document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init','1104557444910839');
-    fbq('track','PageView');
+    fbq('track', 'Purchase', {
+      value: 12.90,
+      currency: 'BRL'
+    });
   </script>
 
-  <!-- redireciona em 2 s -->
-  <meta http-equiv="refresh" content="0;url=https://t.me/+0x0iJa6AVpIzNWFh">
+  <!-- redireciona em 2 segundos -->
+  <meta http-equiv="refresh" content="2;url=https://t.me/+0x0iJa6AVpIzNWFh" />
 </head>
 <body>
   <h1>Redirecionando...</h1>
