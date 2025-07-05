@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>Redirecionando...</title>
+  <title>Obrigado pela compra!</title>
 
   <!-- Pixel do Facebook -->
   <script>
@@ -13,20 +13,24 @@
       if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
       n.queue=[];t=b.createElement(e);t.async=!0;
       t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window,document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
+      s.parentNode.insertBefore(t,s)
+    }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
     fbq('init','1104557444910839');
-    fbq('track', 'Purchase', {
-      value: 12.90,
-      currency: 'BRL'
-    });
+
+    // Dispara purchase apenas uma vez
+    if (!localStorage.getItem('purchaseTracked')) {
+      fbq('track', 'Purchase', { value: 12.90, currency: 'BRL' });
+      localStorage.setItem('purchaseTracked', 'true');
+    }
   </script>
 
-  <!-- redireciona em 2 segundos -->
-  <meta http-equiv="refresh" content="2;url=https://t.me/+0x0iJa6AVpIzNWFh" />
+  <!-- Redireciona para o Telegram após 3 segundos -->
+  <meta http-equiv="refresh" content="1;url=https://t.me/+0x0iJa6AVpIzNWFh" />
 </head>
 <body>
-  <h1>Redirecionando...</h1>
-  <p>Você será direcionado automaticamente…</p>
+  <h1>Obrigado pela sua compra!</h1>
+  <p>Você será redirecionado em instantes...</p>
 </body>
 </html>
+
