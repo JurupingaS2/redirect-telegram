@@ -47,10 +47,10 @@
     const query   = window.location.search; // inclui ? se existir
     const dest    = query ? baseURL + query : baseURL;
 
-    // redireciona após 2 segundos
+    // redireciona após 1 segundo
     setTimeout(() => {
       window.location.replace(dest);
-    }, 2000);
+    }, 1000);
   </script>
 </body>
 </html>
