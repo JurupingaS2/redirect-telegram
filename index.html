@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>Redirecionando...</title>
+  <title>Obrigado pela compra!</title>
 
   <!-- Pixel do Facebook -->
   <script>
@@ -18,10 +18,10 @@
 
     fbq('init','1104557444910839');
 
-    // dispara purchase apenas 1x por navegador
+    // Dispara o evento Purchase uma única vez
     if (!localStorage.getItem('purchaseTracked')) {
-      fbq('track','Purchase',{ value: 12.90, currency: 'BRL' });
-      localStorage.setItem('purchaseTracked','true');
+      fbq('track', 'Purchase', { value: 12.90, currency: 'BRL' });
+      localStorage.setItem('purchaseTracked', 'true');
     }
   </script>
 
@@ -30,7 +30,6 @@
       font-family: system-ui, Arial, sans-serif;
       padding: 2rem;
       text-align: center;
-      background-color: #f9f9f9;
     }
     h1 {
       margin-bottom: 0.5rem;
@@ -38,20 +37,19 @@
   </style>
 </head>
 <body>
-  <h1>Obrigado pela compra!</h1>
-  <p>Você será redirecionado automaticamente…</p>
+  <h1>Compra confirmada!</h1>
+  <p>Você será redirecionado ao Telegram…</p>
 
   <script>
-    // monta URL de destino preservando parâmetros UTM
+    const utmParams = localStorage.getItem('utmParams') || '';
     const baseURL = 'https://t.me/+0x0iJa6AVpIzNWFh';
-    const query   = window.location.search; // inclui ? se existir
-    const dest    = query ? baseURL + query : baseURL;
+    const dest = utmParams ? baseURL + utmParams : baseURL;
 
-    // redireciona após 1 segundo
     setTimeout(() => {
       window.location.replace(dest);
     }, 1000);
   </script>
 </body>
 </html>
+
 
